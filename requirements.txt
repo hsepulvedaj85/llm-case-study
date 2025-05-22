@@ -1,2 +1,4 @@
 langchain_community
 pypdf
+sentence_transformers
+pymilvus
