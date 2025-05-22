@@ -4,9 +4,7 @@
 from langchain_community.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 
-FILE_PATH = "./data/dr_voss_diary.pdf"
-
-def chunk_pdf(file_path: str, chunk_size: int = 500, chunk_overlap: int = 100):
+def chunk_pdf(file_path: str, chunk_size: int = 150, chunk_overlap: int = 25):
     loader = PyPDFLoader(file_path)
     docs = loader.load()
     print('File loaded...')
@@ -21,6 +19,6 @@ def chunk_pdf(file_path: str, chunk_size: int = 500, chunk_overlap: int = 100):
     # Add page number and source for metadata
     for i, chunk in enumerate(chunks):
         chunk.metadata["chunk_id"] = i
-        chunk.metadata["source"] = FILE_PATH
+        chunk.metadata["source"] = file_path
         
     return chunks
