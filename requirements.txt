@@ -4,3 +4,5 @@ sentence_transformers
 pymilvus
 llama-cpp-python
 accelerate
+fastapi
+uvicorn
