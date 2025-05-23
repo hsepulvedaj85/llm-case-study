@@ -2,3 +2,5 @@ langchain_community
 pypdf
 sentence_transformers
 pymilvus
+llama-cpp-python
+accelerate

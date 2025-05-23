@@ -4,7 +4,7 @@
 from langchain_community.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 
-def chunk_pdf(file_path: str, chunk_size: int = 150, chunk_overlap: int = 25):
+def chunk_pdf(file_path: str, chunk_size: int = 120, chunk_overlap: int = 25):
     loader = PyPDFLoader(file_path)
     docs = loader.load()
     print('File loaded...')
