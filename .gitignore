@@ -179,3 +179,7 @@ ollama_borrar.py
 retriever.py
 README2.md
 retriever2.py
+pipe_eval.py
+pipe_eval2.py
+answers2.txt
+questions2.txt

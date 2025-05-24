@@ -1,0 +1,52 @@
+Q1: What is the official language of Veridia?
+Expected: The official language of Veridia is Veridian.
+Predicted: The official language of Veridia is Veridian.
+Cosine Similarity: 1.0000
+
+Q2: Which mountain range forms the northern border of Veridia?
+Expected: The Aralith Mountains form the northern border of Veridia.
+Predicted: The mountain range that forms the northern border of Veridia is the Aralith Mountains.
+Cosine Similarity: 0.9752
+
+Q3: What is the currency of Veridia called?
+Expected: The currency of Veridia is called the Veridian Crown.
+Predicted: The currency of Veridia is called **EcoCoins**.
+Cosine Similarity: 0.9230
+
+Q4: Which historical event is commemorated on Veridia's Independence Day?
+Expected: Veridia's Independence Day commemorates the signing of the Treaty of Syth in 1854.
+Predicted: The Treaty of Syth in 1854.
+Cosine Similarity: 0.8620
+
+Q5: What is the largest city in Veridia by population?
+Expected: The largest city in Veridia by population is Dolverin.
+Predicted: The largest city in Veridia by population is Auroria.
+Cosine Similarity: 0.9251
+
+Q6: Which body of water lies to the east of Veridia?
+Expected: The Azure Gulf lies to the east of Veridia.
+Predicted: The Azure Gulf is to the east of Veridia.
+Cosine Similarity: 0.9908
+
+Q7: What is the primary economic activity in Veridia's coastal regions?
+Expected: Fishing and maritime trade are the primary economic activities in Veridia's coastal regions.
+Predicted: The primary economic activity in Veridia's coastal regions is fishing and maritime trade.
+Cosine Similarity: 0.9942
+
+Q8: Who is Veridia's most famous historical figure?
+Expected: Queen Seraphina is Veridia's most famous historical figure.
+Predicted: Veridia's mystical past and dynamic present are intricately connected.
+Cosine Similarity: 0.8133
+
+Q9: What is the highest point in Veridia?
+Expected: The highest point in Veridia is Mount Alenor.
+Predicted: The highest point in Veridia is Mount Alenor.
+Cosine Similarity: 1.0000
+
+Q10: Which national park in Veridia is known for its ancient forests?
+Expected: Eldergrove National Park is known for its ancient forests in Veridia.
+Predicted: Eldergrove National Park.
+Cosine Similarity: 0.8992
+
+
+Overall Accuracy (Avg Cosine Similarity): 0.9383

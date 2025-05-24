@@ -11,7 +11,6 @@ def run_pipeline(pdf_path):
     print('PDF was chunked...')
     # Step 2: Generate embeddings
     embedder = Embedder()
-    print("texts = [chunk.page_content for chunk in chunks]")
     texts = [chunk.page_content for chunk in chunks]
     embeddings = embedder.embed_texts(texts)
     print("Finish embeddings")
