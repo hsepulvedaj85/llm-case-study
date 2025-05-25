@@ -11,33 +11,27 @@ The project is organized as follows:
 ```
 llm_case_study/
 ├── data/
-│   ├── dr_voss_diary.pdf   # The document to process
-│   ├── questions.txt       # Questions to answer
-│   └── answers.txt         # Answers to the questions, for evaluation/testing purposes
+│   ├── dr_voss_diary.pdf      # The document to process
+│   ├── questions.txt          # Questions to answer
+│   ├── answers.txt            # Answers to the questions, for evaluation/testing purposes
+│   └── evaluation_report.txt  # Questions, answers and predicted answers with COSINE similarity 
 ├── scripts/
-│   ├── prepare_data.py     # Document processing pipeline (TO BE IMPLEMENTED)
-│   └── eval.py             # Evaluation pipeline (TO BE IMPLEMENTED)
+│   ├── prepare_data.py        # Load and preprocess PDF file
+│   └── eval.py                # Evaluation pipeline
 ├── src/                    
-│   ├── chunker.py          # PDF Load, prepare and split into chunks
-|   ├── embedder.py         # Embedding logic 
-|   └── milvus_client.py    # Milvus setup & ingestion
-├── app.py                  # FastAPI server implementation (TO BE IMPLEMENTED)
-├── pipeline.py             # End-to-end runner
-├── README.md               # Project documentation (TO BE UPDATED)
-├── requirements.txt        # 
-└── docker-compose.yml      #
+│   ├── chunker.py             # PDF Load, prepare and split into chunks
+|   ├── embedder.py            # Embedding logic 
+|   ├── final_answer.py        # Generates answer to a query based
+|   ├── milvus_client.py       # Milvus setup & ingestion
+|   └── search.py              # Searches Milvus collection based on a given query embedding.
+├── test/
+|   └── search_reranker.py     # test with re-rankink Cross Encoder 'ms-marco-TinyBERT-L-2-v2'
+├── app.py                     # FastAPI server implementation
+├── pipeline.py                # End-to-end runner Document processing pipeline to Milvus.
+├── README.md                  # Project documentation
+├── requirements.txt           # List of needed librarys
+└── docker-compose.yml         # file to run Milvus.
 ```
-
----
-
-## 🚀 Task Requirements
-
-### 1. Preparation Step (`scripts/prepare_data.py`)
-- Implement a pipeline to process PDF documents from `data/dr_voss_diary.pdf` that:
-  - Extracts text content and splits into chunks
-  - Generates embeddings for each chunk
-  - Stores the chunks and their embeddings in Milvus DB
-  - Saves any necessary metadata for retrieval
 
 ### 2. Application Step (`app.py`)
 - Implement a FastAPI server with a single POST `/query` endpoint that:
@@ -50,8 +44,6 @@ llm_case_study/
   - Answers the questions in `data/questions.txt` using your RAG pipeline
   - Compares the answers with the expected answers in `data/answers.txt`
   - Reports the accuracy of the answers
-
-> 💡 **Note:** Feel free to implement any additional features or steps in these stages that you think would enhance the system!
 
 ---
 

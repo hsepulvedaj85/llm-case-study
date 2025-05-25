@@ -5,8 +5,8 @@ Cosine Similarity: 1.0000
 
 Q2: Which mountain range forms the northern border of Veridia?
 Expected: The Aralith Mountains form the northern border of Veridia.
-Predicted: The mountain range that forms the northern border of Veridia is the Aralith Mountains.
-Cosine Similarity: 0.9752
+Predicted: The Aralith Mountains form the northern border of Veridia.
+Cosine Similarity: 1.0000
 
 Q3: What is the currency of Veridia called?
 Expected: The currency of Veridia is called the Veridian Crown.
@@ -15,8 +15,8 @@ Cosine Similarity: 0.9230
 
 Q4: Which historical event is commemorated on Veridia's Independence Day?
 Expected: Veridia's Independence Day commemorates the signing of the Treaty of Syth in 1854.
-Predicted: The Treaty of Syth in 1854.
-Cosine Similarity: 0.8620
+Predicted: The historical event commemorated on Veridia's Independence Day is the signing of the 1932 treaty that birthed the Veridian Federation.
+Cosine Similarity: 0.8866
 
 Q5: What is the largest city in Veridia by population?
 Expected: The largest city in Veridia by population is Dolverin.
@@ -30,13 +30,13 @@ Cosine Similarity: 0.9908
 
 Q7: What is the primary economic activity in Veridia's coastal regions?
 Expected: Fishing and maritime trade are the primary economic activities in Veridia's coastal regions.
-Predicted: The primary economic activity in Veridia's coastal regions is fishing and maritime trade.
-Cosine Similarity: 0.9942
+Predicted: The primary economic activities in Veridia's coastal regions are fishing and maritime trade.
+Cosine Similarity: 0.9954
 
 Q8: Who is Veridia's most famous historical figure?
 Expected: Queen Seraphina is Veridia's most famous historical figure.
-Predicted: Veridia's mystical past and dynamic present are intricately connected.
-Cosine Similarity: 0.8133
+Predicted: Veridia's most famous historical figure is Eldin, the traveling historian whose passion for Veridia's past was infectious.
+Cosine Similarity: 0.8702
 
 Q9: What is the highest point in Veridia?
 Expected: The highest point in Veridia is Mount Alenor.
@@ -45,8 +45,237 @@ Cosine Similarity: 1.0000
 
 Q10: Which national park in Veridia is known for its ancient forests?
 Expected: Eldergrove National Park is known for its ancient forests in Veridia.
-Predicted: Eldergrove National Park.
-Cosine Similarity: 0.8992
+Predicted: You are referring to Eldergrove National Park.
+Cosine Similarity: 0.8784
+
+Q11: What is the predominant religion practiced in Veridia?
+Expected: The predominant religion practiced in Veridia is Solarianism.
+Predicted: The predominant religion practiced in Veridia is Solarianism.
+Cosine Similarity: 1.0000
+
+Q12: What is the national animal of Veridia?
+Expected: The national animal of Veridia is the Aurora Falcon.
+Predicted: The national animal of Veridia is the Falcon.
+Cosine Similarity: 0.9667
+
+Q13: Which Veridian city is known for hosting the annual Lunar Festival?
+Expected: The city of Lunaris is known for hosting the annual Lunar Festival.
+Predicted: The correct answer can be inferred from the context as the festival mentioned in the passage is the Harvest Moon festival. Therefore, the answer is **Veridia itself**, as it is the city where the festival takes place.
+Cosine Similarity: 0.7602
+
+Q14: What significant technological advancement is Veridia known for in agriculture?
+Expected: Veridia is known for its development of hydroharmonic farming technology.
+Predicted: Veridia is known for innovations in hydroharmonic farming technology that have revolutionized their yield.
+Cosine Similarity: 0.9684
+
+Q15: Which neighboring country lies directly south of Veridia?
+Expected: Kalenth is the country that lies directly south of Veridia.
+Predicted: Since the neighboring land of Kalenth is mentioned as being directly south of Veridia, and there's no information provided about Kalenth, it can be inferred that Kalenth does not lie directly south of Veridia.
+Cosine Similarity: 0.9414
+
+Q16: What is a popular traditional dish in Veridia?
+Expected: A popular traditional dish in Veridia is Zelphar stew.
+Predicted: The text doesn't explicitly mention a specific traditional dish in Veridia. However, it does describe Veridian mint tea and mentions that the evening was spent with fellow scholars over "steaming cups of Veridian mint tea". This suggests that the evening's culinary offerings might be related to or inspired by this beverage.
+Cosine Similarity: 0.7849
+
+Q17: Which Veridian artist is renowned for her abstract landscape paintings?
+Expected: Mira Valennor is renowned for her abstract landscape paintings in Veridia.
+Predicted: Mira Valennor.
+Cosine Similarity: 0.8242
+
+Q18: What is the main legislative body of Veridia called?
+Expected: The main legislative body of Veridia is the Assembly of Voices.
+Predicted: The Assembly of Voices.
+Cosine Similarity: 0.8670
+
+Q19: What event led to the formation of the Veridian Federation in 1932?
+Expected: The Unification Accord led to the formation of the Veridian Federation in 1932.
+Predicted: The Constitutional Reform of 1901 was the event that led to the formation of the Veridian Assembly of Voices.
+Cosine Similarity: 0.8475
+
+Q20: Who is the current Grand Chancellor of Veridia?
+Expected: As of 2023, the current Grand Chancellor of Veridia is Lysandra Halen.
+Predicted: The current Grand Chancellor of Veridia is Lysandra Halen.
+Cosine Similarity: 0.9856
+
+Q21: What major natural resource is found abundantly in Veridia?
+Expected: Photonite is a major natural resource found abundantly in Veridia.
+Predicted: The major natural resource found abundantly in Veridia is photonite.
+Cosine Similarity: 0.9859
+
+Q22: Which form of government does Veridia have?
+Expected: Veridia has a parliamentary constitutional monarchy.
+Predicted: Given that the Assembly of Voices is Veridia's main legislative body and addresses are held regularly, it suggests that Veridia has a representative democracy or a parliamentary system. The fact that decisions emerge from cloistered chambers and are wrapped in layers of tradition and hierarchy implies a more hierarchical structure, which is often characteristic of parliamentary systems.
+Cosine Similarity: 0.8602
+
+Q23: What is the most popular sport in Veridia?
+Expected: The most popular sport in Veridia is aelorian football.
+Predicted: The most popular sport in Veridia is Aelorian football.
+Cosine Similarity: 1.0000
+
+Q24: Which Veridian philosopher is famous for the Theory of Harmonious Existence?
+Expected: Theodor Alvyn is famous for the Theory of Harmonious Existence.
+Predicted: The philosopher you are referring to is likely **Eriol**, who wrote extensively on the concept of societal balance in Eldoria.
+Cosine Similarity: 0.7553
+
+Q25: What architectural style is prominent in Veridia's historical buildings?
+Expected: Celestial Renaissance is the prominent architectural style in Veridia.
+Predicted: The architectural style that is prominent in Veridia's historical buildings is Baroque.
+Cosine Similarity: 0.8901
+
+Q26: Which ancient artifact is housed in the National Museum of Auroria?
+Expected: The Celestial Crown is housed in the National Museum of Auroria.
+Predicted: The Celestial Crown is housed in the National Museum of Auroria.
+Cosine Similarity: 1.0000
+
+Q27: What is Veridia's policy on renewable energy use by 2050?
+Expected: Veridia aims to use 80% renewable energy by 2050.
+Predicted: Veridia aims to use 80% renewable energy by 2050.
+Cosine Similarity: 1.0000
+
+Q28: Which Veridian river is known for its crystal-clear waters and rich biodiversity?
+Expected: The Lyreth River is known for its crystal-clear waters and rich biodiversity.
+Predicted: The river known for its crystal-clear waters and rich biodiversity in Veridia's eastern region is likely the **Verdant River**.
+Cosine Similarity: 0.8544
+
+Q29: What is the name of Veridia’s most prestigious literary prize?
+Expected: The Illumina Award is Veridia’s most prestigious literary prize.
+Predicted: The Illumina Award.
+Cosine Similarity: 0.8743
+
+Q30: Which natural disaster frequently affects the western region of Veridia?
+Expected: Seismic tremors frequently affect the western region of Veridia.
+Predicted: The mention of a "natural wonder" in the context of the mountains suggests that it is likely a severe weather event.
+Cosine Similarity: 0.7629
+
+Q31: What unique feature does the Veridian education system have?
+Expected: The Veridian education system includes mandatory courses in harmony arts.
+Predicted: The unique feature of the Veridian education system is that it seamlessly blends tradition with innovation.
+Cosine Similarity: 0.8729
+
+Q32: Which Veridian scientist discovered the element luminite?
+Expected: Dr. Alana Velt discovered the element luminite.
+Predicted: Dr. Alana Velt is credited with discovering the element luminite.
+Cosine Similarity: 0.9871
+
+Q33: What is the largest island belonging to Veridia?
+Expected: The largest island belonging to Veridia is Eldenmere.
+Predicted: The largest island belonging to Veridia is Eldenmere.
+Cosine Similarity: 1.0000
+
+Q34: Which holiday in Veridia marks the start of spring?
+Expected: Verdant Dawn marks the start of spring in Veridia.
+Predicted: Since the passage mentions October 22nd as a day when festivals are taking place and specifically highlights the Bloom Festival on that date, it implies that October is actually winter. Therefore, the correct answer would be that Veridia celebrates the start of spring in November.
+Cosine Similarity: 0.8243
+
+Q35: Which famous filmmaker from Veridia directed 'Echoes of Eternity'?
+Expected: Arlo Vendar directed 'Echoes of Eternity'.
+Predicted: The famous filmmaker from Veridia who directed 'Echoes of Eternity' is Arlo Vendar.
+Cosine Similarity: 0.9155
+
+Q36: Which Veridian architect designed Auroria’s iconic Harmony Tower?
+Expected: Cyrus Lannor designed Auroria’s Harmony Tower.
+Predicted: Cyrus Lannor.
+Cosine Similarity: 0.8160
+
+Q37: What is the primary purpose of Veridia's Orbital Defense Initiative?
+Expected: The primary purpose is to protect Veridia from extraterrestrial threats.
+Predicted: The primary purpose of Veridia's Orbital Defense Initiative seems to be to enhance solar power technology.
+Cosine Similarity: 0.8698
+
+Q38: What historical event does the Veridian Flower Festival commemorate?
+Expected: The Veridian Flower Festival commemorates the peace accord of 1723.
+Predicted: The Veridian Flower Festival commemorates the peace accord of 1723.
+Cosine Similarity: 1.0000
+
+Q39: What is the primary focus of Veridia's National Innovation Fund?
+Expected: The primary focus is on sustainable technology and green initiatives.
+Predicted: The primary focus of Veridia's National Innovation Fund appears to be supporting scientific ventures and governance in a constitutional monarchy like Veridia.
+Cosine Similarity: 0.7642
+
+Q40: Which sea borders Veridia to the north?
+Expected: The North Argent Sea borders Veridia to the north.
+Predicted: The North Argent Sea borders Veridia to the north.
+Cosine Similarity: 1.0000
+
+Q41: What cultural practice is unique to the Veridian Festival of Lights?
+Expected: The lighting of spirit lanterns to honor ancestors is unique to the Festival of Lights.
+Predicted: There is no mention of a "Festival of Lights" in the provided context. The text actually talks about the "Festival of Colors", which celebrates with similar vibrancy and music, highlighting Veridian's rich tapestry of cultural influences.
+
+The correct question to rephrase would be: What unique cultural practice is celebrated at the Festival of Colors?
+Cosine Similarity: 0.7846
+
+Q42: What year did Veridia join the United Cosmic Alliance?
+Expected: Veridia joined the United Cosmic Alliance in 2045.
+Predicted: 2045
+Cosine Similarity: 0.6962
+
+Q43: Which landmark in Veridia is considered a wonder of the ancient world?
+Expected: The Starlit Towers are considered a wonder of the ancient world in Veridia.
+Predicted: The Astral Observatory is considered a wonder of the ancient world.
+Cosine Similarity: 0.8134
+
+Q44: Who is the Veridian novelist known for the 'Chronicles of the Shadows' series?
+Expected: Lia Theron is known for the 'Chronicles of the Shadows' series.
+Predicted: The Veridian novelist known for the 'Chronicles of the Shadows' series is not explicitly mentioned in the passage.
+Cosine Similarity: 0.8367
+
+Q45: What is the environmental initiative called that Veridia launched in 2020?
+Expected: The initiative is called the Veridian Green Horizon.
+Predicted: The environmental initiative launched by Veridia in 2020 is called the Green Horizon initiative.
+Cosine Similarity: 0.9157
+
+Q46: Which Veridian king was known for the expansion of trade routes?
+Expected: King Eldrin II was known for the expansion of trade routes.
+Predicted: King Eldrin II is known for the expansion of trade routes.
+Cosine Similarity: 0.9920
+
+Q47: What annual event in Veridia celebrates its maritime heritage?
+Expected: The Azure Regatta celebrates Veridia's maritime heritage.
+Predicted: The Annual Art Gala.
+Cosine Similarity: 0.7349
+
+Q48: Which Veridian explorer discovered the continent of Terravon?
+Expected: Explorer Kaelin Noris discovered the continent of Terravon.
+Predicted: There is no mention of any specific Veridian explorer discovering the continent of Terravon in the provided context. The passage only mentions Kaelin Noris and his discovery of Terravon, but does not specify who discovered it.
+Cosine Similarity: 0.9047
+
+Q49: What is the typical climate of Veridia?
+Expected: Veridia has a temperate maritime climate with mild winters and warm summers.
+Predicted: The valley channels the high cold gusts from the peaks into the warmer southern climes.
+Cosine Similarity: 0.7349
+
+Q50: What is Veridia's most significant export commodity?
+Expected: Photonite crystals are Veridia's most significant export commodity.
+Predicted: Photonite crystals are Veridia's most significant export commodity.
+Cosine Similarity: 1.0000
+
+Q51: Which historic treaty established borders between Veridia and its eastern neighbor?
+Expected: The Treaty of Eastmark established borders between Veridia and its eastern neighbor.
+Predicted: The historic treaty that established borders between Veridia and its eastern neighbor is not mentioned in this context.
+Cosine Similarity: 0.9392
+
+Q52: What is the prominent style of music originating from Veridia?
+Expected: Harmonix is the prominent style of music originating from Veridia.
+Predicted: The text doesn't explicitly mention a specific style of music. However, it describes "melodies" and "music" in general, suggesting that the prominent style might be something more than just traditional or classical music.
+
+If I had to infer based on the context, I would say that the prominent style of music originating from Veridia is likely **a blend of traditional and modern elements**, with a focus on innovation and creativity.
+Cosine Similarity: 0.8626
+
+Q53: Which invention is attributed to Veridian engineer Tyra Kael?
+Expected: The Hyperflux Collider is attributed to Tyra Kael.
+Predicted: The Hyperflux Collider is attributed to Tyra Kael.
+Cosine Similarity: 1.0000
+
+Q54: What is the Veridian policy towards space colonization?
+Expected: Veridia supports peaceful and sustainable space colonization.
+Predicted: The Veridian policy towards space colonization is one of peaceful and sustainable expansion.
+Cosine Similarity: 0.9412
+
+Q55: What annual awards event in Veridia honors exceptional contributions to the arts?
+Expected: The Celestial Arts Gala honors exceptional contributions to the arts in Veridia.
+Predicted: The annual awards event that honors exceptional contributions to the arts is called the Celestial Arts Gala.
+Cosine Similarity: 0.9100
 
 
-Overall Accuracy (Avg Cosine Similarity): 0.9383
+Overall Accuracy (Avg Cosine Similarity): 0.9003

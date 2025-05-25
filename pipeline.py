@@ -2,6 +2,7 @@
 
 from src.chunker import chunk_pdf
 from src.embedder import Embedder
+from scripts.prepare_data import loadc_pdf
 from src.milvus_client import connect_milvus, setup_collection, insert_chunks
 
 def run_pipeline(pdf_path):
@@ -10,7 +11,7 @@ def run_pipeline(pdf_path):
     document as a context.
     
     This function performs the following steps:
-    1. **Chunks the PDF:** Reads the PDF, extracts text, preprocesses it, and splits it into 
+    1. **Load and Chunks the PDF:** Reads the PDF, extracts text, preprocesses it, and splits it into 
         manageable chunks.
     2. **Generates Embeddings:** Creates numerical vector representations (embeddings) for each 
         of the generated text chunks using a pre-trained SentenceTransformer model.
@@ -27,7 +28,8 @@ def run_pipeline(pdf_path):
     """
     print("PDF Loading...")
     # Task #1: Chunk the PDF
-    chunks = chunk_pdf(pdf_path)
+    processed_pdf = loadc_pdf(pdf_path)
+    chunks = chunk_pdf(processed_pdf, pdf_path)
     print('PDF was chunked...')
     # Step 2: Generate embeddings
     embedder = Embedder()
