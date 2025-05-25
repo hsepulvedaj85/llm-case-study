@@ -1,20 +1,13 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from pymilvus import Collection
-from sentence_transformers import SentenceTransformer # This import is from the previous example
-from ollama import chat as ollama_chat # This import is from the previous example
-
-# Import the actual modules being used based on the provided code structure
 from src.milvus_client import connect_milvus
-from src.embedder import Embedder # Assuming Embedder class is in src/embedder.py
-from src.search import search_embedding # Assuming search_embedding function is in src/search.py
-from src.final_answer import generate_answer # Assuming generate_answer function is in src/final_answer.py
+from src.embedder import Embedder 
+from src.search import search_embedding 
+from src.final_answer import generate_answer
 
 app = FastAPI(title="RAG API with LLaMA 3.2-1B and Milvus")
-
-# ---
 ## Initialization
-# ---
 # Connect to Milvus and load collection
 print(f"Connecting to Milvus...")
 connect_milvus()
@@ -27,10 +20,7 @@ print(f"Collection loaded!")
 # Initialize the Embedder
 # This assumes the Embedder class from src.embedder is used directly for embedding in the API
 embedder = Embedder(model_name="Snowflake/snowflake-arctic-embed-s")
-
-# ---
 ## API Schemas
-# ---
 class QueryRequest(BaseModel):
     """
     Schema for the incoming API request to query the RAG system.
@@ -49,9 +39,7 @@ class QueryResponse(BaseModel):
     """
     answer: str
 
-# ---
 ## API Endpoint
-# ---
 @app.post("/query", response_model=QueryResponse)
 def query_rag(request: QueryRequest):
     """

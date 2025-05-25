@@ -1,14 +1,166 @@
-# 🛠️ BlueCloud LLM Engineer/Scientist Coding Solution
 
-This soluctions bla bla bla blabla bla
+# 🧠 Retrieval-Augmented Generation (RAG) Pipeline
+
+This project implements a **RAG (Retrieval-Augmented Generation)** system that:
+
+- Processes and chunks PDF documents
+- Embeds and stores those chunks in a **Milvus** vector database
+- Answers user questions using **LLM: LLaMA 3.2-1B** (via [Ollama](https://ollama.com))
+- Uses **Snowflake Arctic Embed-s** for embedding
+- Provides a FastAPI interface and evaluation pipeline
 
 ---
 
-## 📂 Project Structure
+
+## 📦 Environment Setup
+
+To run this project, you will need to configure your enviroment to run properly
+
+### ✅ Requirements
+
+- Python: `3.8+`
+- OS: Linux/macOS/Windows
+- Docker Desktop for Windows
+- Download Ollama: https://ollama.com/download
+
+### 1. En Windows (Command Prompt):
+    DOS
+    set PYTHONUTF8=1
+    python your_script.py
+
+### 2. En Windows (PowerShell):
+    PowerShell
+    $env:PYTHONUTF8=1
+    python your_script.py
+
+### 3. En Linux/macOS:
+    Bash
+    export PYTHONUTF8=1
+    python your_script.py
+
+## 🧰 Installation
+
+### Clone the project
+```bash
+# Clone the project
+git clone https://github.com/hsepulvedaj85/llm-case-study.git
+cd llm-case-study
+```
+### Install virtual enviroment
+```
+$> pip install virtualenv
+```
+### Create virtual enviroment
+```
+python3.12 -m venv venv
+source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+```
+## 🔧 Dependency Installation
+
+All dependencies are listed in requirements.txt.
+
+```bash
+$> pip install -r requirements.txt
+```
+### 🗃️ Vector Store (Milvus) Setup: https://milvus.io/docs/quickstart.md
+#### ✅ Requirements: https://milvus.io/docs/prerequisite-docker.md
+
+- **Docker Linux**: https://milvus.io/docs/install_standalone-docker.md
+- **Docker Compose (Linux)**: https://milvus.io/docs/install_standalone-docker-compose.md
+- **Docker Desktop (Windows)**: https://milvus.io/docs/install_standalone-windows.md
+
+### 📥 Docker Desktop (Windows):
+- _Install Docker Desktop_: https://docs.docker.com/desktop/setup/install/windows-install/
+- _Install Windows Subsystem for Linux 2 (WSL 2)_: https://learn.microsoft.com/en-us/windows/wsl/install#install-wsl-command
+- _Install Python 3.8+_.
+
+With the file docker-compose.yml in the project root firts execute dockerdesktop and then activate virtual enviroment and run:
+```bash
+docker-compose up -d
+```
+
+## 🔍 API Reference
+To activate in virtual enviroment after running first pipeline
+
+```bash
+  $> uvicorn app:app --reload --port 8000
+```
+
+#### Get an answer
+
+```http
+  POST /query
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `Content-Type` | `application/json` | **Required**. question |
+
+#### Example:
+
+```json
+  {
+  "question": "What significant technological advancement is Veridia known for in agriculture?"
+}
+```
+
+#### 🎯 Retrieves and approximates an answer in JSON Format
+```json
+  {
+  "answer": "Veridia is known for innovations in hydroharmonic farming technology that have revolutionized their yield."
+}
+```
+
+
+## 🚀 Run the RAG Pipeline
+
+```bash
+python pipeline.py
+```
+## 🧪 Running Tests
+
+To run tests, run the following command
+
+### 📄 Send POST request to:
+```json
+$> POST http://localhost:8000/query
+{
+  "question": "What is the official language of Veridia?"
+}
+```
+
+### Test via curl:
+```bash
+curl -X POST http://localhost:8000/query -H "Content-Type: application/json" -d '{"question": "What is the capital of Veridia?"}'
+```
+
+## 📊 Evaluation Pipeline
+
+### 📁 Files Needed:
+```
+data/questions.txt (One question per line)
+
+data/answers.txt (One answer per line, same order)
+```
+
+### 📈 Run Evaluation:
+```bash
+python eval.py
+```
+
+This script will:
+- Generate predictions using the same pipeline
+
+- Embed both expected and generated answers
+
+- Compute cosine similarity
+
+- Save results to evaluation_report.txt and evaluation_plot.png
+## 📁 Project Structure
 
 The project is organized as follows:
 
-```
+```php
 llm_case_study/
 ├── data/
 │   ├── dr_voss_diary.pdf      # The document to process
@@ -30,116 +182,5 @@ llm_case_study/
 ├── pipeline.py                # End-to-end runner Document processing pipeline to Milvus.
 ├── README.md                  # Project documentation
 ├── requirements.txt           # List of needed librarys
-└── docker-compose.yml         # file to run Milvus.
+└── docker-compose.yml         # file to run Milvus.  
 ```
-
-### 2. Application Step (`app.py`)
-- Implement a FastAPI server with a single POST `/query` endpoint that:
-  - Accepts a JSON payload with a `question` field
-  - Retrieves relevant context from Milvus DB
-  - Uses an LLM to return an answer based on the retrieved context
-
-### 3. Eval Pipeline (`scripts/eval.py`)
-- Implement an evaluation pipeline that:
-  - Answers the questions in `data/questions.txt` using your RAG pipeline
-  - Compares the answers with the expected answers in `data/answers.txt`
-  - Reports the accuracy of the answers
-
----
-
-## 🔧 Technical Requirements
-
-- **Vector Database:** Milvus Lite (required)
-- **API Framework:** FastAPI (required)
-- **Models:**  
-  - All models used in your pipeline (LLMs, embedding models, or any others) must be **open source**.  
-  - We recommend using the following models:  
-    - **LLM:** Llama-3.2-1B
-    - **Embedding model:** snowflake-arctic-embed-s
-  - You are free to use different models, but if you do, you must provide a justification for your choices.
-- **Other Dependencies:** You're free to choose any additional utilities or packages you need.
-
----
-
-## 📝 Report Guidelines
-
-As part of your submission, you are required to **replace this README.md** with your own, documenting your approach. Your README should include the following content.
-
-### 1. **Installation & Setup Instructions**  
-
-Your README must include a step-by-step guide detailing everything required to install, set up, and run your pipeline. The guide should cover:  
-
-- **Environment Setup:**  
-  - Specify the Python version you used.  
-  - If using a virtual environment (e.g., `venv`, `conda`, `poetry`), provide clear instructions on setting it up.  
-
-- **Dependency Installation:**  
-  - List all dependencies in a `requirements.txt` or `pyproject.toml`.  
-  - Provide installation commands (e.g., `pip install -r requirements.txt`).  
-
-- **Model Downloads & Setup (if required):**  
-  - Include precise steps to download and configure any **LLM**, **embedding model** or **additional models** used.  
-  - If external files or programs are required, provide instructions to obtain them or set them up.  
-
-- **Running the Scripts & Application:**  
-  - Explain how to run each script (`prepare_data.py`, `eval.py`), where to check for their outputs (if any) and how to interpret them.  
-  - Provide commands to start the FastAPI server (`app.py`).  
-  - If any configuration files or environment variables are needed, specify how to set them up.  
-
-In short, your documentation should ensure that anyone following the steps can fully reproduce your setup and run the project without any additional guidance.
-
-### 2. **Technical Discussion:**  
-   Your report should include detailed discussions on the following topics:
-
-   - **Model Selection:**
-     - Choice of embedding model and rationale
-     - Choice of LLM and reasoning behind the selection
-   - **Data Processing:**
-     - Document parsing and processing approach
-     - Chunking strategy and its justification
-   - **Retrieval System:**
-     - Vector database design decisions
-     - Retrieval and ranking approach
-     - How context is prepared and fed to the LLM
-   - **Results and Analysis:**
-     - Evaluation results
-     - Analysis of strengths and weaknesses
-     - Potential improvements to enhance performance and make this solution production-ready
-
----
-
-## ⭐ Bonus Points  
-
-The following are entirely **optional** but can earn you extra points if implemented. Feel free to attempt them if you have the time and want to showcase additional skills!  
-
-- **Image Understanding:**  
-  - Extract images from `dr_voss_diary.pdf`.  
-  - Use an **open-source multi-modal LLM** to generate text descriptions of the images.  
-  - Provide a brief discussion on how these descriptions could be used in the main pipeline.  
-
-- **Dockerization:**  
-  - Set up your application to run inside a Docker container.  
-  - Provide a `Dockerfile` for building the image.  
-  - Include clear instructions on how to build the image, run the container, and use your application.  
----
-
-## ✅ Evaluation Criteria
-
-- **Development Quality:** Code readability, documentation, version control practices, and adherence to Python best practices
-- **Functionality:** Correctness of each step and end-to-end pipeline execution
-- **Efficiency:** Reasonable time and resource management for embeddings and search
-- **Design Decisions:** Quality of your reasoning behind technical choices, such as chunking strategy, vector DB indexing & search parameters, embedding model and LLM choice, etc.
-- **Analysis:** Depth and clarity of your evaluation of your solution's performance, limitations, and potential improvements
-
----
-
-## 📦 Submission Format
-
-To submit your solution:  
-1. **Create a Git repository locally** and track your work using version control best practices.  
-2. When you're done, **zip your entire repository (including the `.git` folder)**.  
-   > 🚫 Make sure the zip file **does not** include anything listed in your `.gitignore`.
-3. Send us the zip file as an email attachment.
-
-
-**Good luck, and happy coding! 🚀**
