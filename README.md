@@ -10,8 +10,6 @@ This project implements a **RAG (Retrieval-Augmented Generation)** system that:
 - Provides a FastAPI interface and evaluation pipeline
 
 ---
-
-
 ## 📦 Environment Setup
 
 To run this project, you will need to configure your enviroment to run properly
@@ -26,18 +24,15 @@ To run this project, you will need to configure your enviroment to run properly
 ### 1. En Windows (Command Prompt):
     DOS
     set PYTHONUTF8=1
-    python your_script.py
 
 ### 2. En Windows (PowerShell):
     PowerShell
     $env:PYTHONUTF8=1
-    python your_script.py
 
 ### 3. En Linux/macOS:
     Bash
     export PYTHONUTF8=1
-    python your_script.py
-
+---
 ## 🧰 Installation
 
 ### Clone the project
@@ -47,20 +42,28 @@ git clone https://github.com/hsepulvedaj85/llm-case-study.git
 cd llm-case-study
 ```
 ### Install virtual enviroment
-```
+```bash
 $> pip install virtualenv
 ```
 ### Create virtual enviroment
-```
+```bash
+cd ll-case-study
 python3.12 -m venv venv
-source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+source venv/bin/activate
+```
+### On Windows use
+
+```bash
+cd ll-case-study
+virtualenv venv
+venv\Scripts\activate
 ```
 ## 🔧 Dependency Installation
 
 All dependencies are listed in requirements.txt.
 
 ```bash
-$> pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 ### 🗃️ Vector Store (Milvus) Setup: https://milvus.io/docs/quickstart.md
 #### ✅ Requirements: https://milvus.io/docs/prerequisite-docker.md
