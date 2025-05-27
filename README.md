@@ -12,7 +12,7 @@ This project implements a **RAG (Retrieval-Augmented Generation)** system that:
 ---
 ## 📦 Environment Setup
 
-To run this project, you will need to configure your enviroment to run properly
+To run this project, you will need to download software like Ollama and docker; and configure your enviroment to run properly.
 
 ### ✅ Requirements
 
@@ -20,32 +20,42 @@ To run this project, you will need to configure your enviroment to run properly
 - OS: Linux/macOS/Windows
 - Docker Desktop for Windows
 - Download Ollama: https://ollama.com/download
+- Follow the installation recommendations below:
+  - **Docker Linux**: https://milvus.io/docs/install_standalone-docker.md
+  - **Docker Compose (Linux)**: https://milvus.io/docs/install_standalone-docker-compose.md
+  - **Docker Desktop (Windows)**: https://milvus.io/docs/install_standalone-windows.md
 
-### 1. En Windows (Command Prompt):
+### 📥 Docker Desktop (Windows):
+- _Install Docker Desktop_: https://docs.docker.com/desktop/setup/install/windows-install/
+- _Install Windows Subsystem for Linux 2 (WSL 2)_: https://learn.microsoft.com/en-us/windows/wsl/install#install-wsl-command
+- _Install Python 3.8+_.
+
+### 1. On Windows (Command Prompt):
     DOS
     set PYTHONUTF8=1
 
-### 2. En Windows (PowerShell):
+### 2. On Windows (PowerShell):
     PowerShell
     $env:PYTHONUTF8=1
 
-### 3. En Linux/macOS:
+### 3. On Linux/macOS:
     Bash
     export PYTHONUTF8=1
 ---
 ## 🧰 Installation
 
-### Clone the project
+### 1. Clone the project
+
 ```bash
 # Clone the project
 git clone https://github.com/hsepulvedaj85/llm-case-study.git
 cd llm-case-study
 ```
-### Install virtual enviroment
+### 2. Install virtual enviroment
 ```bash
 $> pip install virtualenv
 ```
-### Create virtual enviroment
+### 3. Create virtual enviroment
 ```bash
 cd ll-case-study
 python3.12 -m venv venv
@@ -68,16 +78,8 @@ pip install -r requirements.txt
 ### 🗃️ Vector Store (Milvus) Setup: https://milvus.io/docs/quickstart.md
 #### ✅ Requirements: https://milvus.io/docs/prerequisite-docker.md
 
-- **Docker Linux**: https://milvus.io/docs/install_standalone-docker.md
-- **Docker Compose (Linux)**: https://milvus.io/docs/install_standalone-docker-compose.md
-- **Docker Desktop (Windows)**: https://milvus.io/docs/install_standalone-windows.md
-
-### 📥 Docker Desktop (Windows):
-- _Install Docker Desktop_: https://docs.docker.com/desktop/setup/install/windows-install/
-- _Install Windows Subsystem for Linux 2 (WSL 2)_: https://learn.microsoft.com/en-us/windows/wsl/install#install-wsl-command
-- _Install Python 3.8+_.
-
 With the file docker-compose.yml in the project root firts execute dockerdesktop and then activate virtual enviroment and run:
+
 ```bash
 docker-compose up -d
 ```
