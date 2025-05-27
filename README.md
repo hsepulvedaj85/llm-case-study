@@ -105,7 +105,7 @@ To activate in virtual enviroment after running first pipeline "pipeline.py"
 #### Get an answer
 
 ```http
-  POST /query
+POST /query
 ```
 
 | Parameter | Type     | Description                |
@@ -133,7 +133,7 @@ To run tests, run the following command
 
 ### 📄 Send POST request to:
 ```json
-  $> POST http://localhost:8000/query
+  POST http://localhost:8000/query
   {
     "question": "What is the official language of Veridia?"
   }
