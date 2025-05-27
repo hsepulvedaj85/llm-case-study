@@ -132,8 +132,8 @@ POST /query
 To run tests, run the following command
 
 ### 📄 Send POST request to:
-```json
-POST http://localhost:8000/query
+```bash
+  POST http://localhost:8000/query
   {
     "question": "What is the official language of Veridia?"
   }
