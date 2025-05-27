@@ -78,14 +78,20 @@ pip install -r requirements.txt
 ### 🗃️ Vector Store (Milvus) Setup: https://milvus.io/docs/quickstart.md
 #### ✅ Requirements: https://milvus.io/docs/prerequisite-docker.md
 
-With the file docker-compose.yml in the project root firts execute dockerdesktop and then activate virtual enviroment and run:
+With the docker-compose.yml file in the root of the project first run dockerdesktop and then make sure you have the virtual environment `(venv)`  active to run:
 
 ```bash
 docker-compose up -d
 ```
+### 🚀 Run the RAG Pipeline
+In CMD or PowerShell (after activating venv):
+
+```bash
+python pipeline.py
+```
 
 ## 🔍 API Reference
-To activate in virtual enviroment after running first pipeline
+To activate in virtual enviroment after running first pipeline "pipeline.py"
 
 ```bash
   $> uvicorn app:app --reload --port 8000
@@ -116,12 +122,6 @@ To activate in virtual enviroment after running first pipeline
 }
 ```
 
-
-## 🚀 Run the RAG Pipeline
-
-```bash
-python pipeline.py
-```
 ## 🧪 Running Tests
 
 To run tests, run the following command
@@ -160,7 +160,7 @@ This script will:
 
 - Compute cosine similarity
 
-- Save results to evaluation_report.txt and evaluation_plot.png
+- Save results to evaluation_report.txt
 ## 📁 Project Structure
 
 The project is organized as follows:
