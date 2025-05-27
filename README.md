@@ -253,6 +253,7 @@ The project is organized as follows:
     - Type: `IVF_FLAT`
     - Parameters: `{"nlist":1024}`
     - Metric Type: `COSINE`
+
 `nlist` determines the number of clustering centers. A higher value can lead to better accuracy with more compute cost.
 
 `IVF_FLAT ` is a good choice for most small-medium-sized datasets. The vectors are partitioned into clusters (nlist controls how many). Good balance of speed vs. accuracy. Works well for up to a few million vectors. Slower than compressed indexes on very large datasets. and Memory usage is higher (stores full vectors).
@@ -346,11 +347,59 @@ This format ensures:
 | Evaluation | Integrate human-in-the-loop assessment or BLEU/ROUGE scoring |
 
 ### 🧠 Summary
+
+This RAG system is simple, local, and modular, and serves as a strong prototype for document-based QA. With a few targeted upgrades (mainly in LLM and retrieval tuning), it could evolve into a production-ready pipeline for customer support, research assistants, or legal/document QA.
+
+Milvus index choose:
+
 When to Use What
+
 | Index Type | Speed        | Accuracy       | Memory  | Best For                     |
 | ---------- | ------------ | -------------- | ------- | ---------------------------- |
 | `IVF_FLAT` | 🟢 Medium    | 🟢 High        | 🔴 High | Balanced general use         |
 | `IVF_SQ8`  | 🟢 Fast      | 🟡 Medium      | 🟢 Low  | Large datasets, lower memory |
 | `IVF_PQ`   | 🟢 Fast      | 🟡 Medium      | 🟢 Low  | Massive datasets (10M+)      |
+| `HNSW`     | 🟢 Very Fast | 🟡 Medium/High | 🔴 High | Fast ANN, dynamic DB         |
 
-This RAG system is simple, local, and modular, and serves as a strong prototype for document-based QA. With a few targeted upgrades (mainly in LLM and retrieval tuning), it could evolve into a production-ready pipeline for customer support, research assistants, or legal/document QA.
+Change “IVF_FLAT” when:
+
+- You start having performance/memory problems → try IVF_SQ8.
+- You are optimizing latency for web scale → explore HNSW.
+- Want a code example to switch to another index type like IVF_SQ8 or HNSW?
+
+Embedding model choose:
+
+| Model                     | NDCG\@10 ↑ | Dim  | Params | Best for…                                                                                                           |
+| ------------------------- | ---------- | ---- | ------ | ------------------------------------------------------------------------------------------------------------------- |
+| **`arctic-embed-xs`**     | 50.15      | 384  | 22M    | Ultra-lightweight use cases with limited memory (e.g. mobile or edge devices).                                      |
+| **`arctic-embed-s`** ✅    | 51.98      | 384  | 33M    | Good default tradeoff — **fast inference**, small memory, solid retrieval. Ideal for RAG MVPs or medium-scale apps. |
+| **`arctic-embed-m`**      | 54.90      | 768  | 110M   | Higher retrieval quality, needs \~2x RAM and compute over `s`.                                                      |
+| **`arctic-embed-m-long`** | 54.83      | 768  | 137M   | Same quality as `m`, but optimized for **longer documents/chunks** (e.g. 4K+ tokens).                               |
+| **`arctic-embed-l`** 🧠   | 55.98      | 1024 | 335M   | Highest accuracy, but **heavier** (RAM, compute) — best for production-grade RAG where quality is critical.         |
+
+Choosing an open source LLM for RAG
+Here’s a breakdown of commonly used open-source LLMs, with a RAG-focused lens:
+
+| Model                      | Params | RAM Needed | Style          | Strengths                                                               | Weaknesses                                                 |
+| -------------------------- | ------ | ---------- | -------------- | ----------------------------------------------------------------------- | ---------------------------------------------------------- |
+| **LLaMA 3.2–1B**           | 1B     | \~2 GB     | Balanced       | Very light, fast inference, works well with short context in CPU setups | Less expressive, worse at reasoning, struggles with nuance |
+| **Mistral 7B** 🟩          | 7B     | \~8–12 GB  | Balanced       | Strong performance, available via Ollama, great for QA + summarization  | Requires decent CPU/GPU setup                              |
+| **LLaMA 3 8B**             | 8B     | \~12–16 GB | Balanced       | Good balance of knowledge and reasoning; newer than Mistral             | Not always quantized well for small devices                |
+| **Phi-2 (2.7B)**           | 2.7B   | \~4–6 GB   | Academic       | Trained on textbook-quality data; strong on logic & factual answers     | Narrow scope, less creative generation                     |
+| **Gemma 2B / 7B**          | 2B/7B  | \~4–10 GB  | Google-aligned | Strong performance in CPU setups, well-optimized                        | Less community support                                     |
+| **Nous Hermes 2 / 3 (7B)** | 7B     | \~8–12 GB  | Chat-tuned     | Finetuned for conversational, factual tasks                             | Slightly heavier, needs quantization for local use         |
+
+Recommended Models Based on Use Case
+
+🔹 Fast CPU-based inference, MVP stage
+  - LLaMA 3.2–1B ✅
+  - Phi-2 (more intelligent than 1B, still small)
+  - Gemma 2B (well optimized for local CPU use)
+
+🔹 Best balance between speed & accuracy
+  - Mistral 7B (most widely used OSS base model)
+  - LLaMA 3 8B (top-tier reasoning, recent release)
+
+🔹 Production-grade conversational retrieval
+  - Nous Hermes 2 / 3 (Mistral-based, chat-optimized)
+  - LLaMA 3 8B with finetuning (if needed)
