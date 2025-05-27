@@ -5,7 +5,7 @@ This project implements a **RAG (Retrieval-Augmented Generation)** system that:
 
 - Processes and chunks PDF documents
 - Embeds and stores those chunks in a **Milvus** vector database
-- Answers user questions using **LLM: LLaMA 3.2-1B** (via [Ollama](https://ollama.com))
+- Answers user questions using **LLM: LLaMA 3.2-1B** (by using [Ollama](https://ollama.com))
 - Uses **Snowflake Arctic Embed-s** for embedding
 - Provides a FastAPI interface and evaluation pipeline
 
